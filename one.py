@@ -1,4 +1,4 @@
-from flask import Flask, url_for
+from flask import Flask, url_for, request
 app = Flask(__name__)
 
 #@app.route('/')
@@ -25,11 +25,35 @@ def page_not_found(error):
 
 @app.route('/hello/')
 def hello():
-    return "this is my hello page"
+    return '''<html><body>
+            <p>this is my hello page </p>
+            <br>
+            <a href="../account">Account</a>
+            </body></html>'''
 
 @app.route("/goodbye/")
 def goodbye():
     return "this is my goodbye page"
+
+#this is account page
+@app.route("/account/", methods=['GET', 'POST'])
+def account():
+    if request.method == 'POST':
+        print (request.form)
+        name = request.form['name']
+        return "Hello %s" % name
+    else:
+        page= '''
+        <html><body>
+            <form action ="" method="post" name="form">
+                <label for="name">Name:</label>
+                <input type="text" name ="name" id="name"/>
+                <input type="submit" name="submit" id="submit"/>
+            </form>
+        </body></html> '''
+
+        return page
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
