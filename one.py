@@ -1,4 +1,4 @@
-from flask import Flask, url_for, request
+from flask import Flask, url_for, request, render_template
 app = Flask(__name__)
 
 #@app.route('/')
@@ -23,6 +23,7 @@ def page_not_found(error):
     return "Couldn't find the page you requested.", 404
 
 
+#this is page with html - link
 @app.route('/hello/')
 def hello():
     return '''<html><body>
@@ -31,6 +32,16 @@ def hello():
             <a href="../account">Account</a>
             </body></html>'''
 
+#this is how to use template
+@app.route('/template/')
+@app.route('/template/<name>')
+def template(name=None):
+   # user = {'name': name}
+    return render_template('hello.html', name=name)
+
+
+
+#this is gopdbye
 @app.route("/goodbye/")
 def goodbye():
     return "this is my goodbye page"
