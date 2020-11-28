@@ -1,4 +1,4 @@
-from flask import Flask, url_for, request, render_template
+from flask import Flask, url_for, request, render_template, redirect
 # to set up database I'll use SQLAlchemy
 from flask_sqlalchemy import SQLAlchemy
 # to set up an automatic data in the database when creating a new entry
@@ -26,7 +26,24 @@ class Todo(db.Model):
 
 @app.route('/', methods=['POST', 'GET'])
 def root():
-    return render_template('index.html')
+    if request.method == 'POST':
+        # display tasks from the database
+        # get what is in input field called content and sent to the db
+        task_content = request.form['content']
+        # create Todo object
+        new_task = Todo(content=task_content)
+
+        try:
+            db.session.add(new_task)
+            db.session.commit()
+            return redirect('/')
+        except:
+            return 'There was an issue adding your task'
+
+    else:
+        # render all the tasks which are currently in the db ---> pierwszy == .first()
+        tasks = Todo.query.order_by(Todo.date_created).all()
+        return render_template('index.html', tasks=tasks)
 
     # ponizej sa rozne cwiczenia z workbooka (hello + admin sa spoko)
     # add an image
