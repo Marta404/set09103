@@ -1,14 +1,33 @@
 from flask import Flask, url_for, request, render_template
+# to set up database I'll use SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
+# to set up an automatic data in the database when creating a new entry
+from datetime import datetime
+
 app = Flask(__name__)
+# where the database is located, the database is called test.db
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+db = SQLAlchemy(app)
+
+# creating a class here - a model
+
+
+class Todo(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    content = db.Column(db.String(200), nullable=False)
+    date_created = db.Column(db.DateTime, default=datetime.utcnow)
+
+    # to retrieve what has been created; to get from the database the task and it's id
+    def __repr__(self):
+        return '<Task %r>' % self.id
 
 
 @app.route('/', methods=['POST', 'GET'])
 def root():
     return render_template('index.html')
 
-
-# ponizej sa rozne cwiczenia z workbooka (hello + admin sa spoko)
-# add an image
+    # ponizej sa rozne cwiczenia z workbooka (hello + admin sa spoko)
+    # add an image
 
 
 @app.route('/static/img')
