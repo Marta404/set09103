@@ -21,6 +21,8 @@ class Todo(db.Model):
     def __repr__(self):
         return '<Task %r>' % self.id
 
+    # add methods POST and GET to handle data flow to and from the database
+
 
 @app.route('/', methods=['POST', 'GET'])
 def root():
