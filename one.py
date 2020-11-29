@@ -27,7 +27,6 @@ class Todo(db.Model):
 @app.route('/', methods=['POST', 'GET'])
 def root():
     if request.method == 'POST':
-        # display tasks from the database
         # get what is in input field called content and sent to the db
         task_content = request.form['content']
         # create Todo object
@@ -45,10 +44,9 @@ def root():
         tasks = Todo.query.order_by(Todo.date_created).all()
         return render_template('index.html', tasks=tasks)
 
-    # to delete a task from the list/db
-
 
 @app.route('/delete/<int:id>')
+# to delete a task from the list/db
 def delete(id):
     task_to_delete = Todo.query.get_or_404(id)
 
@@ -59,10 +57,20 @@ def delete(id):
     except:
         return 'There was a problem deleting that task'
 
-        # ponizej sa rozne cwiczenia z workbooka (hello + admin sa spoko)
-        # add an image
+
+@app.route('/update/<int:id>', methods=['GET', 'POST'])
+# to update a task from the list/db
+def update(id):
+    task = Todo.query.get_or_404(id)
+
+    if request.method == 'POST':
+        pass
+    else:
+        return render_template('update.html', task=task)
 
 
+# ponizej sa rozne cwiczenia z workbooka (hello + admin sa spoko)
+# add an image
 @app.route('/static/img')
 def static_example_img():
     start = '<img src="'

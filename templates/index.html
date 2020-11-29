@@ -6,7 +6,7 @@
 
 <!-- body content-->
 {% block body%}
-<h1>to jest moja gra - index page</h1>
+
 <div class="content">
     <h1>Task Master</h1>
 
@@ -23,7 +23,7 @@
             <td>
                 <a href="/delete/{{task.id}}">Delete</a>
                 <br>
-                <a href="">Update</a>
+                <a href="/update/{{task.id}}">Update</a>
             </td>
         </tr>
         {% endfor %}
