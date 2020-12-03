@@ -65,7 +65,7 @@ def admin():
         if check_auth(user, pw):
             session['logged_in'] = True
             return 'logged'
-    return 'not logged'
+    return render_template('login.html')
 
     ##
 

@@ -1,0 +1,50 @@
+{% extends "word-game.html" %}
+{% block content %}
+<!-- BLOCK CONTENT-->
+<!-- topnav for admin-->
+<div class="weeks">
+</div>
+<!-- div z formularzem questionform2-->
+
+<h1>Log In</h1>
+<!-- <h1>{{ name }}</h1> -->
+<form class="questionform2" action="/admin" method="POST" name="form">
+
+	<div class="row">
+		<div class="col-10">
+			<label for="email1">Email:</label><br>
+		</div>
+		<div class="col-35">
+			<input type="email" name="email1" id="email1" autocomplete="off" required />
+		</div>
+	</div>
+	<!--  -->
+	<div class="row">
+		<div class="col-10">
+			<label for="pwd">Password:</label>
+		</div>
+		<div class="col-35">
+			<input type="password" id="pwd" name="pwd" required /><br>
+		</div>
+	</div>
+	<!--  -->
+	<div class="row">
+		<div class="col-10">
+		</div>
+		<div class="col-35">
+			<input type="submit" value="Submit">
+		</div>
+	</div>
+	<!--  -->
+	<div class="row">
+		<div class="col-10">
+			<p><a href="#" class="pp-5">Help</a></p>
+		</div>
+		<div class="col-35">
+			<p><a href="#" class="pp-5">Reset password</a></p>
+		</div>
+	</div>
+</form>
+<!-- div z formularzem end -->
+<!-- BLOCK CONTENT END-->
+{% endblock %}
