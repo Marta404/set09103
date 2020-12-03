@@ -19,6 +19,7 @@ app = Flask(__name__)
 # where the database is located, the database is called test.db
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 db = SQLAlchemy(app)
+ma = Marshmallow(app)
 
 #####
 app.secret_key = 'THISisMYsecretKey009'
