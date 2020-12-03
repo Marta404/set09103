@@ -12,7 +12,7 @@ from flask_marshmallow import Marshmallow
 from datetime import datetime
 # new to use login
 # , login_user, login_required, logout_user, current_user
-from flask_login import LoginManager, UserMixin
+###from flask_login import LoginManager, UserMixin
 ##from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
