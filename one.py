@@ -46,7 +46,7 @@ def requires_login(f):
 @app.route('/admin/logout/')
 def admin_logout():
     session['logged_in'] = False
-    return 'admin'
+    return redirect('/admin/')
 
 
 @app.route('/admin/account/')
