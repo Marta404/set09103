@@ -63,6 +63,7 @@ def account():
 
 
 @app.route('/admin/', methods=['POST', 'GET'])
+@app.route('/admin/admin/', methods=['POST', 'GET'])
 def admin():
     if request.method == 'POST':
         user = request.form['email1']
