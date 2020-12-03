@@ -56,7 +56,7 @@ def account():
     return 'account.html'
 
 
-@app.route('/admin/admin/')
+@app.route('/admin/admin/', methods=['POST', 'GET'])
 def admin_admin():
 
     return 'eghngyjtjrhr'
