@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>{% block title %} Word Game {% endblock%}</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700&subset=latin,latin-ext' rel='stylesheet'
+        type='text/css'>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="{{ url_for('static', filename='wordgame.js') }}"></script>
+
+</head>
+
+
+<body>
+    <div id="container">
+        <div id="topnav">
+            <ul>
+                <li><a>Biology</a></li>
+                <li style="float:right"><a href="/" target="_blank">WordGame</a></li>
+            </ul>
+        </div>
+
+        {% block content %} {% endblock %}
+
+    </div>
+    <footer id="footer">&copy; APP 2020 by Marta</footer>
+</body>
+
+</html>
