@@ -64,9 +64,10 @@ def admin():
 
         if check_auth(user, pw):
             session['logged_in'] = True
-            return 'logged'
+            # return 'logged'
+            return "Hello %s" % user
         else:
-            return 'gggggggg'
+            return "Hello %s" % pw
 
     return render_template('login.html')
 
