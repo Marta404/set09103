@@ -73,7 +73,7 @@ def admin():
     ##
 
 
-class Admin(UserMixin, db.Model):
+class Admin(db.Model):
     # table for admin
     id = db.Column(db.Integer, primary_key=True)
     fname = db.Column(db.String(50), nullable=False)
