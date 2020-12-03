@@ -57,7 +57,7 @@ def account():
 
 
 @app.route('/admin/admin/')
-def account():
+def admin_admin():
 
     return 'eghngyjtjrhr'
 
