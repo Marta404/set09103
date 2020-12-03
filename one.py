@@ -56,6 +56,12 @@ def account():
     return 'account.html'
 
 
+@app.route('/admin/admin/')
+def account():
+
+    return 'eghngyjtjrhr'
+
+
 @app.route('/admin/', methods=['POST', 'GET'])
 def admin():
     if request.method == 'POST':
